@@ -95,14 +95,29 @@ const Field = () => {
                 </Box>
             )}
             {!data.socialImage && (
-              <Box>
-                <Button onClick={() => sdk.dialogs.selectSingleAsset({
-                  locale: sdk.field.locale,
-                }).then((selectedAsset) => {
-                  setData({ ...data, socialImage: getAssetValues(selectedAsset) });
-                  sdk.field.setValue({ ...data, socialImage: getAssetValues(selectedAsset) });
-                })}>Select asset</Button>
-              </Box>
+              <>
+                <Box>
+                  <Box as="span" marginRight="spacingM">
+                    <Button onClick={() => sdk.dialogs.selectSingleAsset({
+                      locale: sdk.field.locale,
+                    }).then((selectedAsset) => {
+                      setData({ ...data, socialImage: getAssetValues(selectedAsset) });
+                      sdk.field.setValue({ ...data, socialImage: getAssetValues(selectedAsset) });
+                    })}>Select asset</Button>
+                  </Box>
+                  <Box as="span" marginRight="spacingM">
+                    <Button onClick={() => sdk.navigator.openNewAsset({
+                      slideIn: { waitForClose: true }
+                    }).then(({entity}) => {
+                      if (!entity) return;
+                      if (!entity.sys?.id) return;
+
+                      setData({ ...data, socialImage: getAssetValues(entity) });
+                      sdk.field.setValue({ ...data, socialImage: getAssetValues(entity) });
+                    })}>Create new asset</Button>
+                  </Box>
+                </Box>
+              </>
             )}
           </FormControl>
 
