@@ -133,7 +133,7 @@ const Field = () => {
 
           <FormControl>
             <FormControl.Label>No index</FormControl.Label>
-            <Switch name="noindex" defaultChecked={data.noindex} onChange={
+            <Switch name="noindex" isChecked={data.noindex} onChange={
               (e) => {
                 setData({...data, noindex: !data.noindex})
                 sdk.field.setValue({...data, noindex: !data.noindex})
@@ -142,7 +142,7 @@ const Field = () => {
           </FormControl>
           <FormControl>
             <FormControl.Label>No follow</FormControl.Label>
-            <Switch name="nofollow" defaultChecked={data.nofollow} onChange={
+            <Switch name="nofollow" isChecked={data.nofollow} onChange={
               (e) => {
                 setData({...data, nofollow: !data.nofollow})
                 sdk.field.setValue({...data, nofollow: !data.nofollow})
