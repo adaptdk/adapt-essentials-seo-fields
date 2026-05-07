@@ -4,6 +4,9 @@ This is an SEO Metadata field widget, built on top of the JSON
 field type. It collects some basic data that we use for
 metadata when building pages.
 
+<img width="1030" height="813" alt="image" src="https://github.com/user-attachments/assets/fb234314-25ca-4d2d-b5da-827bc35b86df" />
+
+
 ## To use
 
 1. In contentful, create a new app with the name `SEO Field Widget`
